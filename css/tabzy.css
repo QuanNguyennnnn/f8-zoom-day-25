@@ -7,33 +7,19 @@ body {
   margin: 40px;
 }
 
-.wrapper {
-  width: 80%;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.tab-container {
-  margin-bottom: 40px;
-  border: 1px solid #ccc;
+.tabs {
+  display: flex;
+  background: #eee;
   border-radius: 6px;
   overflow: hidden;
 }
 
-.tabs {
-  display: flex;
-  border-bottom: 1px solid #ccc;
-  background-color: #f8f8f8;
-}
-
 .tab {
   flex: 1;
+  padding: 10px;
   text-align: center;
-  padding: 12px 16px;
   cursor: pointer;
-  border: none;
-  background: none;
-  transition: background 0.2s;
+  transition: background 0.3s;
 }
 
 .tab:hover {
@@ -47,13 +33,32 @@ body {
 }
 
 .tab-contents {
+  position: relative;
   padding: 16px;
+  min-height: 80px;
+  position: relative;
+  min-height: 80px;
 }
 
 .content {
-  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  pointer-events: none;
 }
 
 .content.active {
-  display: block;
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  position: relative;
 }
+
